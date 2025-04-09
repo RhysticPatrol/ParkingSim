@@ -3,20 +3,22 @@
 
 #include <string>
 
+using namespace std;
+
 class ParkedCar {
 private:
-    std::string licenseNumber;
-    std::string make;
-    std::string model;
-    std::string color;
+    string licenseNumber;
+    string make;
+    string model;
+    string color;
 
 public:
-    ParkedCar(const std::string& license, const std::string& make, const std::string& model, const std::string& color);
+    ParkedCar(const string& license, const string& make, const string& model, const string& color);
 
-    std::string getLicenseNumber() const;
-    std::string getMake() const;
-    std::string getModel() const;
-    std::string getColor() const;
+    string getLicenseNumber() const;
+    string getMake() const;
+    string getModel() const;
+    string getColor() const;
 };
 
-#endif 
+#endif

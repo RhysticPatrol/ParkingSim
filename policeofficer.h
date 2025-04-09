@@ -4,23 +4,25 @@
 #include "ParkedCar.h"
 #include "ParkingMeter.h"
 #include "ParkingTicket.h"
+#include <string>
 
-using namespace std;
+using namespace std; 
 
-// class to represent a police officer
 class PoliceOfficer {
-private:
-    string name; // name of the officer
-    string badgeNumber; // badge number of the officer
-    ParkedCar car; // car being inspected
-    ParkingMeter meter; // parking meter associated with the car
-
 public:
-    // constructor to create a police officer
-    PoliceOfficer(const string& name, const string& badgeNumber, const ParkedCar& car, const ParkingMeter& meter);
+    PoliceOfficer(const string& name,
+                  const string& badgeNumber,
+                  const ParkedCar& car, // use references
+                  const ParkingMeter& meter); // use references
 
-    // inspect the car for parking violations
     void inspectCar();
+    double calculateFine(int minutesOver) const;
+
+private:
+    string name;
+    string badgeNumber;
+    ParkedCar car;
+    ParkingMeter meter;
 };
 
 #endif

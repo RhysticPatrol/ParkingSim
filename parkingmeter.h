@@ -1,26 +1,19 @@
 #ifndef PARKINGMETER_H
 #define PARKINGMETER_H
 
-using namespace std;
-
-// class to represent a parking meter
 class ParkingMeter {
 private:
-    int minutesAllowed; // minutes allowed on the meter
-    int minutesParked;  // minutes the car has been parked
+    int allowedMinutes;
+    int parkedMinutes;
 
 public:
-    // constructor to initialize the parking meter
     ParkingMeter(int allowed, int parked);
 
-    // get the minutes allowed on the meter
-    int getMinutesAllowed() const;
+    int getAllowedMinutes() const;
+    int getParkedMinutes() const;
 
-    // get the minutes the car has been parked
-    int getMinutesParked() const;
-
-    // calculate the time elapsed
-    int timeElapsed() const;
+    bool isExpired() const;
+    int getOverdueMinutes() const;
 };
 
-#endif 
+#endif

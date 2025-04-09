@@ -1,20 +1,29 @@
 #include "ParkingMeter.h"
-using namespace std;
 
-// constructor to set up the parking meter
-ParkingMeter::ParkingMeter(int allowed, int parked) : minutesAllowed(allowed), minutesParked(parked) {}
+// constructor for ParkingMeter class
+// this sets up the parking meter with the allowed minutes and parked minutes
+ParkingMeter::ParkingMeter(int allowed, int parked)
+    : allowedMinutes(allowed), parkedMinutes(parked) {}
 
-// return the minutes allowed on the meter
-int ParkingMeter::getMinutesAllowed() const {
-    return minutesAllowed;
+// get the number of minutes allowed on the meter
+int ParkingMeter::getAllowedMinutes() const {
+    return allowedMinutes; // return the allowed minutes
 }
 
-// return the minutes the car has been parked
-int ParkingMeter::getMinutesParked() const {
-    return minutesParked;
+// get the number of minutes the car has been parked
+int ParkingMeter::getParkedMinutes() const {
+    return parkedMinutes; // return the parked minutes
 }
 
-// calculate the time elapsed since the car was parked
-int ParkingMeter::timeElapsed() const {
-    return minutesParked;
+// check if the parking time has expired
+bool ParkingMeter::isExpired() const {
+    return parkedMinutes > allowedMinutes; // return true if parked time is more than allowed
+}
+
+// calculate the number of overdue minutes
+int ParkingMeter::getOverdueMinutes() const {
+    if (isExpired()) { // check if the meter is expired
+        return parkedMinutes - allowedMinutes; // calculate overdue minutes
+    }
+    return 0; // return 0 if not expired
 }
